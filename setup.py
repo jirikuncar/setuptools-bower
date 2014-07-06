@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##
 ## This file is part of setuptools-bower
-## Copyright (C) 2013 CERN.
+## Copyright (C) 2013, 2014 CERN.
 ##
 ## setuptools-bower is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License as
@@ -30,7 +30,7 @@ setup(
     license='GPLv2',
     author='Invenio collaboration',
     author_email='info@invenio-software.org',
-    description='Setuptools commands for integrating bower',
+    description='Setuptools commands for integrating bower.',
     long_description=open('README.rst').read(),
     packages=['setuptools_bower', ],
     zip_safe=False,
@@ -40,7 +40,25 @@ setup(
         'setuptools>=2.0',
         'six',
     ],
+    extras_require = {
+        "docs": [
+            "sphinx_rtd_theme"
+        ],
+    },
     classifiers=[
+        'Environment :: Web Environment',
+        'Framework :: Setuptools Plugin',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        #'Development Status :: 5 - Production/Stable',
     ],
     entry_points={
         "distutils.commands": [

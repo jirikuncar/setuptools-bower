@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##
 ## This file is part of setuptools-bower
-## Copyright (C) 2013 CERN.
+## Copyright (C) 2013, 2014 CERN.
 ##
 ## setuptools-bower is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License as
@@ -21,8 +21,22 @@
 ## granted to it by virtue of its status as an Intergovernmental Organization
 ## or submit itself to any jurisdiction.
 
+"""Sphinx configuration."""
+
+from __future__ import print_function
+
 import sys
 import os
+
+_html_theme = "sphinx_rtd_theme"
+_html_theme_path = []
+
+try:
+    import sphinx_rtd_theme
+    _html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+except ImportError:
+    print("Template {0} not found, pip install it", file=sys.stderr)
+    _html_theme = "default"
 
 sys.path.append(os.path.abspath('_themes'))
 
@@ -109,8 +123,8 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme_path = ['_themes']
-#html_theme = 'flask'
+html_theme_path = _html_theme_path
+html_theme = _html_theme
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
